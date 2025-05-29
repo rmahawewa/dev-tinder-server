@@ -47,7 +47,10 @@ requestRouter.post(
 
 			const data = await connectionRequest.save();
 			console.log("test email");
-			const emailRes = await sendEmail.run();
+			const emailRes = await sendEmail.run(
+				"New connection request",
+				"You have got a new connection request from" + toUser
+			);
 			console.log(emailRes);
 
 			res.json({
