@@ -86,4 +86,17 @@ userRouter.get("/feed", userAuth, async (req, res) => {
 	}
 });
 
+userRouter.get("/chatUser/:chatUserId", userAuth, async (req, res) => {
+	try {
+		const chatUserId = req.params.chatUserId;
+		let chatUser = await User.findById({ _id: chatUserId }).select(
+			"firstName lastName"
+		);
+		console.log("chat user" + chatUser);
+		res.send(chatUser);
+	} catch (err) {
+		res.status(400).send("ERROR: " + err.message);
+	}
+});
+
 module.exports = userRouter;
