@@ -51,7 +51,7 @@ requestRouter.post(
 				"New connection request",
 				"You have got a new connection request from" + toUser.firstName
 			);
-			console.log(emailRes);
+			// console.log(emailRes);
 
 			res.json({
 				message: "Connection Request Sent Successfully!",
